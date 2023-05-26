@@ -5,11 +5,14 @@ import java.util.Set;
 
 import com.example.notes.model.Notes;
 
-public interface NoteService{
+public interface NoteService {
 
     Set<Notes> getNotes();
-    Optional<Notes> findById(Long id);
+
+    Notes findById(Long id);
+
     void deleteById(Long id);
+
     Notes saveNote(Notes note);
 
 }

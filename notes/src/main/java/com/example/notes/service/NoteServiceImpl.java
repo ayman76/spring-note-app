@@ -30,12 +30,12 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public Optional<Notes> findById(Long id) {
+    public Notes findById(Long id) {
         Optional<Notes> noteOptional = notesRepo.findById(id);
         if (!noteOptional.isPresent())
             throw new RuntimeException("Note not Found!");
 
-        return noteOptional;
+        return noteOptional.get();
 
     }
 
