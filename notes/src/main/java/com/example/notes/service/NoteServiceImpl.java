@@ -44,4 +44,9 @@ public class NoteServiceImpl implements NoteService {
         notesRepo.deleteById(id);
     }
 
+    @Override
+    public Notes saveNote(Notes note) {
+        return notesRepo.save(note);
+    }
+
 }

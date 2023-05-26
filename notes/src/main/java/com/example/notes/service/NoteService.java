@@ -10,5 +10,6 @@ public interface NoteService{
     Set<Notes> getNotes();
     Optional<Notes> findById(Long id);
     void deleteById(Long id);
+    Notes saveNote(Notes note);
 
 }
