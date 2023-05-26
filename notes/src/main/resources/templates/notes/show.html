@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-    <title>Add Note</title>
+    <title th:text="${note.title}">Add Note</title>
 </head>
 
 <body>
@@ -25,30 +25,29 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="#" th:href="@{'/'}">Home</a>
-                    <a class="nav-link" href="#">Add</a>
+                    <a class="nav-link" href="#" th:href="@{/note/add}">Add</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <br>
-    <div class="container-fluid" style="margin-top: 20px;">
-        <div class="row">
-            <div class="col-md-6 col-md offset-3">
-                <form th:object="${note}" th:action="@{/note}" method="post">
-                    <input type="hidden" th:field="*{id}" />
-                    <div class="mb-3">
-                        <label for="NoteTitle" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="NoteTitle" th:field="*{title}">
+    <div class="container-fluid" style="margin-top: 20px">
+        <div class="justify-content-center">
+            <div class="col-md-6 offset-md-3">
+                <div class="pannel-group">
+                    <div class="card mb-3">
+                        <div class="card-header text-light mb-3" style="background-color: #096DB1;">
+                            <h1 class="card-title" th:text="${note.title}">Title</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p th:text="${note.description}">Description</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="NoteDescription" class="form-label">Description</label>
-                        <textarea class="form-control" id="NoteDescription" rows="3"
-                            th:field="*{description}"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
