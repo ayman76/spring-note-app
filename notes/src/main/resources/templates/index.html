@@ -44,9 +44,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Note 1 Title</td>
+                        <tr th:each="note : ${notes}">
+                            <td th:text="${note.id}">1</td>
+                            <td th:text="${note.title}">Note 1 Title</td>
                             <td><button type="button" class="btn btn-success" aria-label="View">View</button></td>
                             <td><button type="button" class="btn btn-primary" aria-label="Update">Update</button></td>
                             <td><button type="button" class="btn btn-danger" aria-label="Delete">Delete</button></td>
