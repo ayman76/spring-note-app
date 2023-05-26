@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.notes.model.Notes;
@@ -25,7 +26,7 @@ public class NoteServiceImpl implements NoteService {
     public Set<Notes> getNotes() {
         Set<Notes> notes = new HashSet<>();
 
-        notesRepo.findAll().forEach(note -> notes.add(note));
+        notesRepo.findAll(Sort.by(Sort.Direction.DESC, "id")).forEach(note -> notes.add(note));
         return notes;
     }
 
